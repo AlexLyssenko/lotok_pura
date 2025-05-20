@@ -97,6 +97,6 @@ func main() {
 	}
 	proxy := NewReverseProxy(target)
 	handler := proxyHandler(proxy)
-	log.Printf("Starting proxy server on %s", proxyPort)
+	log.Printf("Starting proxy server port: %s", proxyPort)
 	log.Fatal(http.ListenAndServe(proxyPort, handler))
 }
