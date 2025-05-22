@@ -18,8 +18,8 @@ const (
 )
 
 func modifyResponse(resp *http.Response) error {
-	log.Printf("step 1")
-	log.Printf("path %s", resp.Request.URL.Path)
+	log.Printf("Path %s", resp.Request.URL.Path)
+
 	if resp.Request.URL.Path != specialPath {
 		return nil
 	}
@@ -97,6 +97,6 @@ func main() {
 	}
 	proxy := NewReverseProxy(target)
 	handler := proxyHandler(proxy)
-	log.Printf("Starting proxy server port: %s", proxyPort)
+	log.Printf("Starting proxy server on port %s", proxyPort)
 	log.Fatal(http.ListenAndServe(proxyPort, handler))
 }
